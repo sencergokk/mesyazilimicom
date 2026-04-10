@@ -1,20 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const outfit = Outfit({
+  variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mesyazilimi.com"),
   title: {
-    default: "MES Yazılımı - Üretim Yürütme Sistemi Nedir? | MES Programı",
-    template: "%s | MES Yazılımı"
+    default:
+      "MES Yazılımı | Üretim Yürütme Sistemi - Akıllı Fabrika Çözümleri",
+    template: "%s | MES Yazılımı",
   },
-  description: "MES (Manufacturing Execution System) yazılımı, üretim süreçlerini gerçek zamanlı izleyen ve yöneten bir sistemdir. MES programı hakkında detaylı bilgi edinin.",
+  description:
+    "MES (Manufacturing Execution System) yazılımı ile üretim süreçlerinizi dijitalleştirin. Gerçek zamanlı üretim takibi, kalite kontrol, OEE analizi ve Endüstri 4.0 çözümleri hakkında kapsamlı rehber.",
   keywords: [
     "mes yazılımı",
     "mes programı",
@@ -25,7 +33,22 @@ export const metadata: Metadata = {
     "fabrika otomasyon sistemi",
     "üretim planlama yazılımı",
     "mes nedir",
-    "mes çözümleri"
+    "mes çözümleri",
+    "oee nedir",
+    "oee hesaplama",
+    "endüstri 4.0",
+    "akıllı fabrika",
+    "üretim yönetim sistemi",
+    "kalite kontrol yazılımı",
+    "üretim izleme sistemi",
+    "fabrika yönetim yazılımı",
+    "üretim verimliliği",
+    "dijital fabrika",
+    "mes erp farkı",
+    "üretim optimizasyonu",
+    "gerçek zamanlı üretim takibi",
+    "üretim performans analizi",
+    "scada mes entegrasyonu",
   ],
   authors: [{ name: "MES Yazılımı" }],
   creator: "MES Yazılımı",
@@ -45,21 +68,55 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: "https://mesyazilimi.com",
-    title: "MES Yazılımı - Üretim Yürütme Sistemi Nedir?",
-    description: "MES yazılımı, üretim süreçlerini gerçek zamanlı izleyen ve yöneten bir sistemdir. Manufacturing Execution System hakkında kapsamlı bilgi.",
     siteName: "MES Yazılımı",
+    title:
+      "MES Yazılımı | Üretim Yürütme Sistemi - Akıllı Fabrika Çözümleri",
+    description:
+      "MES (Manufacturing Execution System) yazılımı ile üretim süreçlerinizi dijitalleştirin. Gerçek zamanlı üretim takibi, kalite kontrol, OEE analizi ve Endüstri 4.0 çözümleri hakkında kapsamlı rehber.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MES Yazılımı - Üretim Yürütme Sistemi",
-    description: "MES yazılımı ve üretim yürütme sistemleri hakkında detaylı bilgi",
+    title:
+      "MES Yazılımı | Üretim Yürütme Sistemi - Akıllı Fabrika Çözümleri",
+    description:
+      "MES (Manufacturing Execution System) yazılımı ile üretim süreçlerinizi dijitalleştirin. Gerçek zamanlı üretim takibi, kalite kontrol, OEE analizi ve Endüstri 4.0 çözümleri hakkında kapsamlı rehber.",
   },
   alternates: {
     canonical: "https://mesyazilimi.com",
   },
-  other: {
-    "google-site-verification": "your-verification-code-here",
+  verification: {
+    google: "",
   },
+  category: "technology",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mesyazilimi.com/#website",
+      url: "https://mesyazilimi.com",
+      name: "MES Yazılımı",
+      description:
+        "MES (Manufacturing Execution System) yazılımı ile üretim süreçlerinizi dijitalleştirin. Gerçek zamanlı üretim takibi, kalite kontrol, OEE analizi ve Endüstri 4.0 çözümleri hakkında kapsamlı rehber.",
+      inLanguage: "tr-TR",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://mesyazilimi.com/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mesyazilimi.com/#organization",
+      name: "MES Yazılımı",
+      url: "https://mesyazilimi.com",
+      description:
+        "MES yazılımı ve üretim yürütme sistemleri hakkında Türkiye'nin en kapsamlı bilgi kaynağı.",
+      sameAs: [],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -69,28 +126,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
+      <body
+        className={`${outfit.variable} ${plusJakartaSans.variable} font-sans antialiased bg-gray-950 text-slate-300`}
+      >
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "MES Yazılımı",
-              "url": "https://mesyazilimi.com",
-              "description": "MES (Manufacturing Execution System) yazılımı ve üretim yürütme sistemleri hakkında kapsamlı bilgi",
-              "inLanguage": "tr-TR",
-              "about": {
-                "@type": "Thing",
-                "name": "MES Yazılımı",
-                "description": "Üretim Yürütme Sistemi"
-              }
-            })
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className={`${inter.variable} antialiased`}>
         {children}
       </body>
     </html>
