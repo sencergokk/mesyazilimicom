@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Özellikler", href: "#ozellikler" },
-  { label: "Avantajlar", href: "#avantajlar" },
-  { label: "Modüller", href: "#moduller" },
-  { label: "Sektörler", href: "#sektorler" },
+  { label: "Özellikler", href: "/#ozellikler" },
+  { label: "Modüller", href: "/#moduller" },
+  { label: "Sektörler", href: "/#sektorler" },
+  { label: "Şehirler", href: "/#sehirler" },
   { label: "Blog", href: "/blog" },
-  { label: "SSS", href: "#sss" },
+  { label: "SSS", href: "/#sss" },
 ];
 
 export default function Header() {

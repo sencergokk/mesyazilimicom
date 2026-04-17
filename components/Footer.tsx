@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
+import { cities } from "@/lib/cities-data";
 
 const quickLinks = [
   { label: "Anasayfa", href: "/" },
-  { label: "Özellikler", href: "#ozellikler" },
-  { label: "Avantajlar", href: "#avantajlar" },
-  { label: "Modüller", href: "#moduller" },
+  { label: "Özellikler", href: "/#ozellikler" },
+  { label: "Avantajlar", href: "/#avantajlar" },
+  { label: "Modüller", href: "/#moduller" },
+  { label: "Sektörler", href: "/#sektorler" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -17,15 +19,19 @@ const blogLinks = [
     label: "OEE Nedir?",
     href: "/blog/oee-nedir-mes-ile-uretim-verimliligi",
   },
+  {
+    label: "MES Yatırım Getirisi",
+    href: "/blog/mes-yazilimi-roi-yatirim-getirisi",
+  },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-gray-950 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Column 1: Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">M</span>
@@ -38,8 +44,8 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
-              MES yazilimi ve uretim yurutme sistemleri hakkinda Turkiye&apos;nin
-              en kapsamli bilgi kaynagi.
+              MES yazılımı ve üretim yürütme sistemleri hakkında
+              Türkiye&apos;nin en kapsamlı bilgi kaynağı.
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -90,7 +96,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact */}
+          {/* Column 4: Cities */}
+          <div>
+            <h3 className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-4">
+              Şehirler
+            </h3>
+            <ul className="space-y-3">
+              {cities.slice(0, 6).map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={`/${c.slug}`}
+                    className="text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                  >
+                    {c.name} MES Firması
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 5: Contact */}
           <div>
             <h3 className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-4">
               İletişim
@@ -108,7 +133,11 @@ export default function Footer() {
               <li>
                 <div className="flex items-start gap-3 text-sm text-slate-400">
                   <MapPin className="w-4 h-4 mt-0.5 text-slate-500 shrink-0" />
-                  <span>MES Yazılımı Bilgi Portali</span>
+                  <span>
+                    Türkiye genelinde MES yazılımı
+                    <br />
+                    danışmanlık ve uygulama
+                  </span>
                 </div>
               </li>
             </ul>
@@ -118,10 +147,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-500">
-            &copy; 2025 MES Yazılımı. Tum haklari saklidir.
+            &copy; 2026 MES Yazılımı. Tüm hakları saklıdır.
           </p>
           <p className="text-sm text-slate-500">
-            Turkiye&apos;nin MES Bilgi Kaynagi
+            Türkiye&apos;nin MES Bilgi Kaynağı
           </p>
         </div>
       </div>

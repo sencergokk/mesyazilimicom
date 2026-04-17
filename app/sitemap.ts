@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { cities } from "@/lib/cities-data";
 
 const blogSlugs = [
   "mes-yazilimi-nedir",
@@ -11,17 +12,18 @@ const blogSlugs = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://mesyazilimi.com";
+  const now = new Date();
 
   const routes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
@@ -29,10 +31,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
-  return [...routes, ...blogRoutes];
+  const cityRoutes: MetadataRoute.Sitemap = cities.map((c) => ({
+    url: `${baseUrl}/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
+
+  return [...routes, ...cityRoutes, ...blogRoutes];
 }

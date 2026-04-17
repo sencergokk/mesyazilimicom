@@ -4,6 +4,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ModulesSection from "@/components/ModulesSection";
 import IndustriesSection from "@/components/IndustriesSection";
+import CitiesSection from "@/components/CitiesSection";
 import BlogPreview from "@/components/BlogPreview";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
@@ -19,6 +20,7 @@ export default function Home() {
         <BenefitsSection />
         <ModulesSection />
         <IndustriesSection />
+        <CitiesSection />
         <BlogPreview />
         <FAQSection />
         <CTASection />
